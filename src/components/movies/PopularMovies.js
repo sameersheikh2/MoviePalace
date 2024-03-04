@@ -11,12 +11,12 @@ const PopularMovies = () => {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization: { bearerToken },
+        Authorization: `Bearer ${bearerToken}`,
       },
     };
 
     fetch(
-      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=2",
       options
     )
       .then((response) => response.json())
