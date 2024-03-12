@@ -1,7 +1,11 @@
+import Hero from "../components/hero/Hero";
+import PopularMovies from "../components/movies/PopularMovies";
+
 const Home = () => {
   return (
     <>
-      <input type="text" name="search" id="" />
+      <Hero />
+      <PopularMovies />
     </>
   );
 };

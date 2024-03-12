@@ -1,16 +1,37 @@
 import Header from "./components/header/Header";
-import PopularMovies from "./components/movies/PopularMovies";
+import Footer from "./components/footer/Footer";
+import Home from "./pages/Home";
+import { Outlet, createBrowserRouter } from "react-router-dom";
+import Movie from "./pages/Movie";
 
 const App = () => {
   return (
     <>
       <Header />
-      <PopularMovies />
+      <Outlet />
+      <Footer />
     </>
   );
 };
 
-export default App;
+const appRoute = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/movie/:movie_id",
+        element: <Movie />,
+      },
+    ],
+  },
+]);
+
+export default appRoute;
 
 /**
  * Body -
