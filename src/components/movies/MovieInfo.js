@@ -5,7 +5,7 @@ const MovieInfo = ({ title, genre, rating, poster, videos, description }) => {
   const trailer_url = videos ? videos[0].key : "";
   return (
     <>
-      <section className="flex justify-between items-center">
+      <section autoFocus className="flex justify-between items-center">
         <div>
           <h1 className="text-6xl font-bold">{title}</h1>
           {genre && (
