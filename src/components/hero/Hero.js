@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ShimmerHero from "../../helper/ShimmerHero";
+import ShimmerHero from "../../UI/ShimmerHero";
 import Slider from "react-slick";
 
 const Hero = () => {
@@ -25,7 +25,7 @@ const Hero = () => {
     adaptiveHeight: true,
   };
 
-  const fetchPopularMovie = async () => {
+  const fetchNowPlaying = async () => {
     try {
       const res = await fetch(
         "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
@@ -39,7 +39,7 @@ const Hero = () => {
   };
 
   useEffect(() => {
-    fetchPopularMovie();
+    fetchNowPlaying();
   }, []);
 
   return (
