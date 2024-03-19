@@ -1,10 +1,9 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import MovieCard from "./MovieCard";
 
 const PopularMovies = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
-  // const page = useRef(1);
   const [page, setPage] = useState(1);
   const bearerToken = process.env.MY_BEARER_TOKEN;
 
@@ -24,8 +23,6 @@ const PopularMovies = () => {
         options
       );
       const data = await res.json();
-      console.log(data);
-      // page.current += 1;
       setMovies((prevMovies) => [...prevMovies, ...data.results]);
     } catch (error) {
       console.error(error);
@@ -33,31 +30,28 @@ const PopularMovies = () => {
     setLoading(false);
   };
 
+  const handleLoadMore = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
+
   useEffect(() => {
     fetchMovies();
   }, [page]);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const handleScroll = () => {
-    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
-    if (scrollTop + clientHeight >= scrollHeight - 5 && !loading) {
-      // fetchMovies();
-      setPage((prevPage) => prevPage + 1);
-    }
-  };
-  console.log(page);
 
   return (
     <div className="flex flex-wrap mt-10 gap-6 justify-center items-center">
       {movies.map((movie) => (
         <MovieCard key={movie.id} movie={movie} />
       ))}
+      <div className="flex justify-center w-full mt-6">
+        <button
+          className="text-base bg-green-900 hover:bg-green-700 font-medium transition-all ease-in-out duration-300 rounded-md p-2 px-3 hover:rounded-md text-white"
+          onClick={handleLoadMore}
+          disabled={loading}
+        >
+          {loading ? "Loading..." : "Load More"}
+        </button>
+      </div>
     </div>
   );
 };
