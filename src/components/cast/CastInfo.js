@@ -24,6 +24,7 @@ const CastInfo = () => {
             "?append_to_response=movie_credits",
           options
         );
+        window.scrollTo(0, 0);
         const data = await res.json();
         setCastInfo(data);
       } catch (err) {

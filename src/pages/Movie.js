@@ -23,6 +23,7 @@ const Movie = () => {
           options
         );
         const data = await res.json();
+        console.log(data);
         window.scrollTo(0, 0);
         setMovieDetail(data);
       } catch (error) {
