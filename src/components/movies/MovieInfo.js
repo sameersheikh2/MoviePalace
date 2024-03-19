@@ -1,7 +1,8 @@
 import React from "react";
 import StarIcon from "@mui/icons-material/Star";
 import Carousel from "../carousel/Carousel";
-import Cast from "../Cast/Cast";
+import Cast from "../cast/Cast";
+import { Link } from "react-router-dom";
 
 const MovieInfo = ({
   title,
@@ -12,16 +13,23 @@ const MovieInfo = ({
   videos,
   description,
   credits,
+  similar,
 }) => {
-  console.log(videos && videos.find((video) => video.type === "Trailer"));
   const trailer_url = videos
     ? videos.find((video) => video.type === "Trailer").key
     : "";
   return (
     <>
-      <section autoFocus className="flex justify-between items-center">
+      <section className="flex justify-between items-center">
         <div>
-          <h1 className="text-6xl font-bold">{title}</h1>
+          <Link
+            className="text-base hover:bg-green-800 font-medium transition-all
+            ease-in-out duration-300 rounded-md p-2 hover:rounded-md hover:text-white"
+            to="/"
+          >
+            Back to home
+          </Link>
+          <h1 className="text-6xl mt-4 font-bold">{title}</h1>
           {genre && (
             <p className="text-sm mt-4">
               {genre.map((genre) => genre.name).join(", ")}
@@ -46,7 +54,6 @@ const MovieInfo = ({
           className="w-[650px]  h-[450px]"
           src={"https://www.youtube.com/embed/" + trailer_url}
           title="Code 8 Part II | Official Trailer | Netflix"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         ></iframe>
@@ -56,27 +63,29 @@ const MovieInfo = ({
       </div>
       <div className="w-full h-full mt-20 flex flex-col gap-10">
         <Carousel type="image" items={images && images.backdrops} />
-        <Carousel
-          type="video"
-          items={
-            videos &&
-            videos.filter(
-              (video) => video.type === "Teaser" || video.type === "Trailer"
-            )
-          }
-        />
       </div>
-      <div className="flex mt-20 justify-center items-center flex-wrap gap-11">
-        {credits &&
-          credits.slice(0, 15).map((cast) => (
-            <div className="w-[320px] flex items-center justify-center rounded-md border-2 shadow-xl cursor-pointer hover:bg-gray-300 h-[170px]">
-              <Cast
-                name={cast?.name}
-                character={cast?.character}
-                profile_path={cast?.profile_path}
-              />
-            </div>
-          ))}
+      <div className="mt-20 text-center">
+        <h1 className="text-4xl font-semibold mb-3">Top Cast</h1>
+        <div className="flex justify-center items-center flex-wrap  gap-1">
+          {credits &&
+            credits.slice(0, 15).map((cast) => (
+              <div
+                key={cast.id}
+                className="w-[22rem] flex items-center justify-center rounded-md border-2 shadow-xl cursor-pointer hover:bg-gray-300 h-44"
+              >
+                <Cast
+                  id={cast.id}
+                  name={cast?.name}
+                  character={cast?.character}
+                  profile_path={cast?.profile_path}
+                />
+              </div>
+            ))}
+        </div>
+      </div>
+      <div className="mt-20">
+        <h1 className="text-2xl font-semibold mb-3">Similar to {title} : </h1>
+        <Carousel items={similar} />
       </div>
     </>
   );

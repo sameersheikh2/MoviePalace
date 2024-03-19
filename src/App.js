@@ -3,6 +3,8 @@ import Footer from "./components/footer/Footer";
 import Home from "./pages/Home";
 import { Outlet, createBrowserRouter } from "react-router-dom";
 import Movie from "./pages/Movie";
+import Error from "./pages/Error/Error";
+import CastInfo from "./components/cast/CastInfo";
 
 const App = () => {
   return (
@@ -27,7 +29,9 @@ const appRoute = createBrowserRouter([
         path: "/movie/:movie_id",
         element: <Movie />,
       },
+      { path: "/cast/:cast_id", element: <CastInfo /> },
     ],
+    errorElement: <Error />,
   },
 ]);
 

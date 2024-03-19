@@ -5,20 +5,12 @@ const ShimmerMovieDetail = () => {
     <>
       <section className="animate-pulse flex justify-between items-center">
         <div>
-          <h1 className="animate-pulse text-6xl font-bold">
-            Lorem ipsum dolor sit amet.
-          </h1>
+          <div className="w-96 mt-10 ml-7 rounded-lg h-16 bg-slate-500"></div>
 
-          <p className="animate-pulse text-sm mt-4">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          </p>
+          <p className="w-60 ml-7 mt-5 rounded-lg h-9 bg-slate-500"></p>
         </div>
         <div className="animate-pulse flex items-center font-semibold justify-center">
-          <StarIcon sx={{ color: "yellow", fontSize: "44px" }} />
-          <h1 className="animate-pulse text-5xl">Lorem </h1>
-          <span className="animate-pulse self-end text-md mb-[2px] text-gray-600">
-            /10
-          </span>
+          <h1 className="w-28 mt-10 rounded-lg h-16 bg-slate-500"> </h1>
         </div>
       </section>
       <div className="my-20 items-center flex-col lg:flex-row gap-6 justify-center flex ">
@@ -33,11 +25,7 @@ const ShimmerMovieDetail = () => {
         ></iframe>
       </div>
       <div>
-        <p className="animate-pulse text-center text-xl ">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse animi,
-          laboriosam eveniet deleniti commodi vitae reiciendis libero iste
-          pariatur, impedit vel dolorem ratione asperiores cumque.
-        </p>
+        <p className="w-11/12 m-auto mt-5 rounded-lg h-9 bg-slate-500 "></p>
       </div>
     </>
   );
