@@ -32,7 +32,6 @@ const CastInfo = () => {
     };
     fetchData();
   }, []);
-  console.log(castInfo);
   return (
     <>
       {castInfo && (
