@@ -47,7 +47,7 @@ const CastInfo = () => {
             >
               Go back
             </button>
-            <h1 className="text-6xl mt-4 font-bold">{castInfo.name}</h1>
+            <h1 className="text-6xl my-4 font-bold">{castInfo.name}</h1>
             <p className="text-gray-600 font-semibold text-sm">
               {castInfo.known_for_department}
             </p>
