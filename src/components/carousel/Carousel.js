@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { Link } from "react-router-dom";
+import MovieCard from "../movies/MovieCard";
 
 const Carousel = ({ items, type }) => {
   const SampleNextArrow = ({ onClick }) => {
