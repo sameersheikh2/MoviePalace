@@ -1,7 +1,8 @@
-import { Suspense, useEffect } from "react";
+import { Suspense } from "react";
 import Hero from "../components/hero/Hero";
 import MovieLists from "../components/movies/MovieLists";
 import ShimmerHero from "../UI/ShimmerHero";
+import ShimmerCard from "../UI/ShimmerCard";
 
 const Home = () => {
   return (
@@ -9,7 +10,9 @@ const Home = () => {
       <Suspense fallback={<ShimmerHero />}>
         <Hero />
       </Suspense>
-      <MovieLists />
+      <Suspense fallback={<ShimmerCard />}>
+        <MovieLists />
+      </Suspense>
     </>
   );
 };

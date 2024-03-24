@@ -6,7 +6,6 @@ const ShimmerMovieDetail = () => {
       <section className="animate-pulse flex justify-between items-center">
         <div>
           <div className="w-96 mt-10 ml-7 rounded-lg h-16 bg-slate-500"></div>
-
           <p className="w-60 ml-7 mt-5 rounded-lg h-9 bg-slate-500"></p>
         </div>
         <div className="animate-pulse flex items-center font-semibold justify-center">
