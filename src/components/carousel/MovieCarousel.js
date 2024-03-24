@@ -1,10 +1,7 @@
-// items.map((movie) => <MovieCard key={movie.id} movie={movie} />)
-
 import React from "react";
 import Slider from "react-slick";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { Link } from "react-router-dom";
 import MovieCard from "../movies/MovieCard";
 
 const MovieCarousel = ({ items }) => {
@@ -38,7 +35,7 @@ const MovieCarousel = ({ items }) => {
     slidesToScroll: 1,
     speed: 500,
     pauseOnHover: false,
-    cssEase: "linear",
+    // cssEase: "linear",
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
@@ -52,30 +49,30 @@ const MovieCarousel = ({ items }) => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 780,
         settings: {
           slidesToShow: 2,
+          initialSlide: 1,
           slidesToScroll: 1,
           initialSlide: 2,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 580,
         settings: {
           slidesToShow: 1,
+          initialSlide: 1,
           slidesToScroll: 1,
         },
       },
     ],
   };
   return (
-    <div className="slider-container">
-      <Slider {...settings}>
-        {items.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
-      </Slider>
-    </div>
+    <Slider {...settings}>
+      {items.map((movie) => (
+        <MovieCard key={movie.id} movie={movie} />
+      ))}
+    </Slider>
   );
 };
 

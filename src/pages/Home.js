@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Hero from "../components/hero/Hero";
-import PopularMovies from "../components/movies/PopularMovies";
+import MovieLists from "../components/movies/MovieLists";
 import ShimmerHero from "../UI/ShimmerHero";
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
       <Suspense fallback={<ShimmerHero />}>
         <Hero />
       </Suspense>
-      <PopularMovies />
+      <MovieLists />
     </>
   );
 };

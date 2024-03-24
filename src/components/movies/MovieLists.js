@@ -3,7 +3,7 @@ import MovieCarousel from "../carousel/MovieCarousel";
 import useMovies from "../../utils/useMovies";
 import { Link } from "react-router-dom";
 
-const PopularMovies = () => {
+const MovieLists = () => {
   const movies = useMovies("popular");
   const upcomingMovies = useMovies("upcoming");
   const topRatedMovies = useMovies("top_rated");
@@ -41,4 +41,4 @@ const PopularMovies = () => {
   );
 };
 
-export default PopularMovies;
+export default MovieLists;
