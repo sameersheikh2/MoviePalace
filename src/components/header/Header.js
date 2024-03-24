@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import SearchList from "../searchList/SearchList";
 
 const Header = () => {
   return (
     <>
-      <header className="p-8 md:flex-row flex-col  h-auto bg-[#1c2d1d] shadow-xl text-white flex justify-between  items-center">
+      <header className="p-8 relative md:flex-row flex-col  h-auto bg-[#1c2d1d] shadow-xl text-white flex justify-between  items-center">
         <Link to="/">
           <div className="flex flex-col mb-4 items-center justify-center cursor-pointer">
             <h1 className="tracking-widest text-4xl  font-semibold">
@@ -22,6 +23,7 @@ const Header = () => {
             placeholder="Search for movies..."
             id="search"
           />
+          <SearchList />
         </div>
         <nav className="hidden lg:inline">
           <ul className="flex text-2xl space-x-4">

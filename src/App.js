@@ -6,13 +6,17 @@ import Movie from "./pages/Movie";
 import Error from "./pages/Error/Error";
 import CastInfo from "./components/cast/CastInfo";
 import React from "react";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 const App = () => {
   return (
     <React.StrictMode>
-      <Header />
-      <Outlet />
-      <Footer />
+      <Provider store={store}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </Provider>
     </React.StrictMode>
   );
 };

@@ -1,12 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import MovieCarousel from "../carousel/MovieCarousel";
-import useMovies from "../../utils/useMovies";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMovies } from "../../store/movieListsSlice";
 
 const MovieLists = () => {
-  const movies = useMovies("popular");
-  const upcomingMovies = useMovies("upcoming");
-  const topRatedMovies = useMovies("top_rated");
+  const upcomingMovies = useSelector((state) => state.movieLists.upcoming);
+  const popularMovies = useSelector((state) => state.movieLists.popular);
+  const topRatedMovies = useSelector((state) => state.movieLists.top_rated);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchMovies("upcoming"));
+    dispatch(fetchMovies("popular"));
+    dispatch(fetchMovies("top_rated"));
+  }, []);
 
   return (
     <>
@@ -15,7 +23,7 @@ const MovieLists = () => {
           <h1 className="text-2xl font-semibold ">Popular Movies - </h1>
           <button type="button">view all &gt;</button>
         </div>
-        <MovieCarousel items={movies && movies} />;
+        <MovieCarousel items={popularMovies && popularMovies} />;
       </section>
       <section>
         <div className="flex bg-[#1c2d1d] text-white justify-between items-center px-4 py-2 my-6">

@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import Hero from "../components/hero/Hero";
 import MovieLists from "../components/movies/MovieLists";
 import ShimmerHero from "../UI/ShimmerHero";
