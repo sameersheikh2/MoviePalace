@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import MovieCard from "./MovieCard";
-// import Carousel from "../carousel/Carousel";
 import MovieCarousel from "../carousel/MovieCarousel";
 import useMovies from "../../utils/useMovies";
 import { Link } from "react-router-dom";

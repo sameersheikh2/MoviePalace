@@ -5,14 +5,15 @@ import { Outlet, createBrowserRouter } from "react-router-dom";
 import Movie from "./pages/Movie";
 import Error from "./pages/Error/Error";
 import CastInfo from "./components/cast/CastInfo";
+import React from "react";
 
 const App = () => {
   return (
-    <>
+    <React.StrictMode>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </React.StrictMode>
   );
 };
 
@@ -36,24 +37,3 @@ const appRoute = createBrowserRouter([
 ]);
 
 export default appRoute;
-
-/**
- * Body -
- *    -header
- *    -hero
- *    -movies
- *        -featured movies
- *          -movie card
- *        -popular movies
- *          -movie card
- *  ON search
- *   - movies
- *     -search reasults
- *      -filters
- *      -movie card
- *    -footer
- *
- *
- *
- *
- */

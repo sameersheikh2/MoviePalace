@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 const useMovies = (type) => {
   const [movies, setMovies] = useState([]);
-  //   const [page, setPage] = useState(1);
   const bearerToken = process.env.MY_BEARER_TOKEN;
 
   const fetchMovies = async () => {
