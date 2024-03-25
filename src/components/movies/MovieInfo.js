@@ -51,7 +51,7 @@ const MovieInfo = ({
         />
         <iframe
           loading="lazy"
-          className="w-[650px]  h-[450px]"
+          className="w-[300px] sm:w-[550px] sm:h-[350px] h-[200px]"
           src={"https://www.youtube.com/embed/" + trailer_url}
           title="Code 8 Part II | Official Trailer | Netflix"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
