@@ -43,7 +43,7 @@ const MovieLists = () => {
             View all &gt;
           </Link>
         </div>
-        <MovieCarousel items={topRatedMovies && topRatedMovies} />;
+        <MovieCarousel items={topRatedMovies && topRatedMovies} />
       </section>
     </>
   );

@@ -28,13 +28,11 @@ const Hero = () => {
 
   return (
     <section className="w-full h-full text-white relative">
-      <Slider {...settings}>
-        {nowPlaying.length != 0 ? (
-          <Carousel items={nowPlaying} />
-        ) : (
-          <ShimmerHero />
-        )}
-      </Slider>
+      {nowPlaying.length != 0 ? (
+        <Carousel items={nowPlaying} />
+      ) : (
+        <ShimmerHero />
+      )}
     </section>
   );
 };
