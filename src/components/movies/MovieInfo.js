@@ -20,7 +20,7 @@ const MovieInfo = ({
     : "";
   return (
     <>
-      <section className="flex justify-between items-center">
+      <section className="flex sm:flex-row flex-col justify-between items-center">
         <div>
           <Link
             className="text-base hover:bg-green-800 font-medium transition-all
@@ -36,7 +36,7 @@ const MovieInfo = ({
             </p>
           )}
         </div>
-        <div className="flex items-center font-semibold justify-center">
+        <div className="flex w-full mt-2 sm:mt-0 sm:w-auto justify-start items-start sm:items-center font-semibold sm:justify-center">
           <StarIcon sx={{ color: "yellow", fontSize: "44px" }} />
           <h1 className="text-5xl">{rating && rating.toFixed(1)}</h1>
           <span className="self-end text-md mb-[2px] text-gray-600">/10</span>
