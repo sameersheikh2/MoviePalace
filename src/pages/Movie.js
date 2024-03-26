@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import MovieInfo from "../components/movies/MovieInfo";
 import ShimmerMovieDetail from "../UI/ShimmerMovieDetail";
 import useMovieInfo from "../utils/useMovieInfo";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMovieDetail } from "../store/movieInfoSlice";
 
 const Movie = () => {
   const { movie_id } = useParams();
+  const movieDetail = useSelector((state) => state.movieInfo);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchMovieDetail(movie_id));
+  }, []);
 
-  const movieDetail = useMovieInfo(movie_id);
+  // const movieDetail = useMovieInfo(movie_id);
 
   return (
     <>

@@ -3,6 +3,9 @@ import StarIcon from "@mui/icons-material/Star";
 import Carousel from "../carousel/Carousel";
 import Cast from "../cast/Cast";
 import { Link } from "react-router-dom";
+import { movieImageLink } from "../../constant";
+import { setMovieDetails } from "../../store/movieInfoSlice";
+import { useDispatch } from "react-redux";
 
 const MovieInfo = ({
   title,
@@ -15,9 +18,12 @@ const MovieInfo = ({
   credits,
   similar,
 }) => {
-  const trailer_url = videos
-    ? videos.find((video) => video.type === "Trailer").key
-    : "";
+  const dispatch = useDispatch();
+  const trailer_url =
+    videos && videos.length != 0 && videos
+      ? videos.find((video) => video.type === "Trailer").key
+      : "";
+
   return (
     <>
       <section className="flex sm:flex-row flex-col justify-between items-center">
@@ -26,6 +32,7 @@ const MovieInfo = ({
             className="text-base hover:bg-green-800 font-medium transition-all
             ease-in-out duration-300 rounded-md p-2 hover:rounded-md hover:text-white"
             to="/"
+            onClick={() => dispatch(setMovieDetails([]))}
           >
             Back to home
           </Link>
@@ -46,23 +53,27 @@ const MovieInfo = ({
         <img
           width={300}
           height={500}
-          src={`https://image.tmdb.org/t/p/original/${poster}`}
+          src={movieImageLink + poster}
           alt="poster"
         />
-        <iframe
-          loading="lazy"
-          className="w-[300px] sm:w-[550px] sm:h-[350px] h-[200px]"
-          src={"https://www.youtube.com/embed/" + trailer_url}
-          title="Code 8 Part II | Official Trailer | Netflix"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        ></iframe>
+        {typeof trailer_url != "undefined" && trailer_url && (
+          <iframe
+            loading="lazy"
+            className="w-[300px] sm:w-[550px] sm:h-[350px] h-[200px]"
+            src={"https://www.youtube.com/embed/" + trailer_url}
+            title="Code 8 Part II | Official Trailer | Netflix"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+        )}
       </div>
       <div>
         <p className="text-center text-xl ">"{description}"</p>
       </div>
       <div className="w-full h-full mt-20 flex flex-col gap-10">
-        <Carousel type="image" items={images && images.backdrops} />
+        {images && images.backdrops.length != 0 && (
+          <Carousel type="image" items={images && images.backdrops} />
+        )}
       </div>
       <div className="mt-20 text-center">
         <h1 className="text-4xl font-semibold mb-3">Top Cast</h1>
@@ -83,10 +94,12 @@ const MovieInfo = ({
             ))}
         </div>
       </div>
-      <div className="mt-20">
-        <h1 className="text-2xl font-semibold mb-3">Similar to {title} : </h1>
-        <Carousel items={similar} />
-      </div>
+      {similar && similar.length != 0 && (
+        <div className="mt-20">
+          <h1 className="text-2xl font-semibold mb-3">Similar to {title} : </h1>
+          <Carousel items={similar} />
+        </div>
+      )}
     </>
   );
 };

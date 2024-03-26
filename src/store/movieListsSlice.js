@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { movieListsLink, options } from "../constant";
+import { movieLink, options } from "../constant";
 
 const movieListsSlice = createSlice({
   name: "movieLists",
@@ -20,7 +20,7 @@ const movieListsSlice = createSlice({
 export const fetchMovies = (type) => async (dispatch) => {
   try {
     const res = await fetch(
-      movieListsLink + `${type}?language=en-US&page=1`,
+      movieLink + `${type}?language=en-US&page=1`,
       options
     );
     const data = await res.json();

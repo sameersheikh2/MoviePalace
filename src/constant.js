@@ -7,4 +7,7 @@ export const options = {
   },
 };
 
-export const movieListsLink = "https://api.themoviedb.org/3/movie/";
+export const movieImageLink = "https://image.tmdb.org/t/p/original/";
+export const movieLink = "https://api.themoviedb.org/3/movie/";
+export const searchMovieLink =
+  "https://api.themoviedb.org/3/search/movie?query=";

@@ -39,7 +39,11 @@ const Carousel = ({ items, type }) => {
                 .map((movie) => (
                   <swiper-slide
                     key={movie.id}
-                    style={{ width: "auto", overflow: "hidden" }}
+                    style={{
+                      width: "auto",
+                      height: "100vh",
+                      overflow: "hidden",
+                    }}
                     lazy="true"
                   >
                     <Link to={"/movie/" + movie.id}>
