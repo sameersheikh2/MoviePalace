@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { options, searchMovieLink } from "../constant";
+import { options, searchMovieLink } from "../utils/constant";
 
 const searchResultSlice = createSlice({
   name: "searchResult",

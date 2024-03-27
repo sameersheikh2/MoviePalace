@@ -3,6 +3,8 @@ import SearchList from "../searchList/SearchList";
 import { useDispatch } from "react-redux";
 import { searchHandler } from "../../store/searchResultSlice";
 import { useEffect, useState } from "react";
+import MenuIcon from "@mui/icons-material/Menu";
+import { sideMenuToggle } from "../../store/sideMenuSlice";
 
 const Header = () => {
   const [searchText, setSearchText] = useState("");
@@ -30,17 +32,26 @@ const Header = () => {
 
   return (
     <>
-      <header className="p-8 relative md:flex-row flex-col  h-auto bg-[#1c2d1d] shadow-xl text-white flex justify-between  items-center">
-        <Link to="/">
-          <div className="flex flex-col mb-4 items-center justify-center cursor-pointer">
-            <h1 className="tracking-widest text-4xl  font-semibold">
-              MoviePalace
-            </h1>
-            <p className="text-xs tracking-widest">
-              Where Every Frame Tells a Story
-            </p>
-          </div>
-        </Link>
+      <header className="p-8 relative md:flex-row flex-col  h-auto bg-[#1c2d1d] shadow-xl text-white flex justify-between items-center">
+        <div className="flex justify-between w-[21rem] md:w-96 items-center">
+          <button
+            type="button"
+            onClick={() => dispatch(sideMenuToggle())}
+            className="block lg:hidden rounded-full cursor-pointer hover:bg-white hover:bg-opacity-[10%] p-[6px]"
+          >
+            <MenuIcon fontSize="large" />
+          </button>
+          <Link to="/">
+            <div className="flex flex-col mb-4 items-center justify-center cursor-pointer">
+              <h1 className="tracking-widest text-4xl  font-semibold">
+                MoviePalace
+              </h1>
+              <p className="text-xs tracking-widest">
+                Where Every Frame Tells a Story
+              </p>
+            </div>
+          </Link>
+        </div>
         <div className="w-96">
           <input
             className="p-2 px-4 bg-gray-100 text-black w-full rounded-full focus:outline-emerald-700 outline-none"
@@ -71,12 +82,6 @@ const Header = () => {
             ease-in-out duration-300 rounded-md p-2 hover:rounded-md hover:text-white"
             >
               About
-            </li>
-            <li
-              className="text-base cursor-pointer hover:bg-green-800 font-medium transition-all
-            ease-in-out duration-300 rounded-md p-2 hover:rounded-md hover:text-white"
-            >
-              Contact Us
             </li>
             <li
               className="text-base cursor-pointer hover:bg-green-800 font-medium transition-all>Signup</li>

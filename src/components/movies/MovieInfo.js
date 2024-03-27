@@ -3,7 +3,7 @@ import StarIcon from "@mui/icons-material/Star";
 import Carousel from "../carousel/Carousel";
 import Cast from "../cast/Cast";
 import { Link } from "react-router-dom";
-import { movieImageLink } from "../../constant";
+import { movieImageLink } from "../../utils/constant";
 import { setMovieDetails } from "../../store/movieInfoSlice";
 import { useDispatch } from "react-redux";
 

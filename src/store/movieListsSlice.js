@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { movieLink, options } from "../constant";
+import { movieLink, options } from "../utils/constant";
 
 const movieListsSlice = createSlice({
   name: "movieLists",
