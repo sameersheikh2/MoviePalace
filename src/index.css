@@ -16,13 +16,13 @@
 @media screen and (max-width: 768px) {
   #my-swiper {
     width: 100% !important;
-    height: 100% !important;
+    height: 80vh !important;
   }
 }
 
 @media screen and (max-width: 480px) {
   #my-swiper {
     width: 100% !important;
-    height: 200px !important;
+    height: 60vh !important;
   }
 }

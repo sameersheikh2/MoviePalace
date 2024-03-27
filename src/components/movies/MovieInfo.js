@@ -95,7 +95,7 @@ const MovieInfo = ({
         </div>
       </div>
       {similar && similar.length != 0 && (
-        <div className="mt-20">
+        <div className="mt-20 h-3/4">
           <h1 className="text-2xl font-semibold mb-3">Similar to {title} : </h1>
           <Carousel items={similar} />
         </div>
