@@ -20,19 +20,20 @@ const MovieCarousel = ({ items }) => {
         },
       })}
     >
-      {items.map((movie) => (
-        <swiper-slide
-          lazy="true"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-          key={movie.id}
-        >
-          <MovieCard movie={movie} />
-        </swiper-slide>
-      ))}
+      {items &&
+        items.map((movie) => (
+          <swiper-slide
+            lazy="true"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            key={movie.id}
+          >
+            <MovieCard movie={movie} />
+          </swiper-slide>
+        ))}
     </swiper-container>
   );
 };
