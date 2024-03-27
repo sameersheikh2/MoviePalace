@@ -19,7 +19,7 @@ const SideMenu = () => {
       onClick={() => dispatch(sideMenuToggle())}
     >
       <div
-        className={`flex justify-center items-center top-0 w-96 h-[100vh] fixed z-40 ease-in-out  duration-1000 left-0 bg-white  ${
+        className={`flex justify-center items-center top-0 w-48 md:w-96 h-[100vh] fixed z-40 ease-in-out  duration-1000 left-0 bg-white  ${
           sideMenu ? "translate-x-0" : "translate-x-full"
         }`}
       >
