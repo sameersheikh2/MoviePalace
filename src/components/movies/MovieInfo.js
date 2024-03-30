@@ -51,6 +51,7 @@ const MovieInfo = ({
       </section>
       <div className="my-20 overflow-hidden items-center flex-col lg:flex-row gap-6 justify-center flex ">
         <img
+          loading="lazy"
           width={300}
           height={500}
           src={movieImageLink + poster}
