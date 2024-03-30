@@ -12,7 +12,7 @@ const Movie = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchMovieDetail(movie_id));
-  }, []);
+  }, [movie_id]);
 
   // const movieDetail = useMovieInfo(movie_id);
 
