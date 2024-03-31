@@ -36,11 +36,7 @@ const SideMenu = () => {
               HOME
             </li>
           </Link>
-          <Link>
-            <li className="hover:bg-green-800 px-3 py-2 rounded-lg ease-in duration-300 hover:text-white transition-all cursor-pointer">
-              ABOUT
-            </li>
-          </Link>
+
           <Link>
             <li className="hover:bg-green-800 px-3 py-2 rounded-lg ease-in duration-300 hover:text-white transition-all cursor-pointer">
               MOVIES

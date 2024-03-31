@@ -49,8 +49,9 @@ const MovieInfo = ({
           <span className="self-end text-md mb-[2px] text-gray-600">/10</span>
         </div>
       </section>
-      <div className="my-20 overflow-hidden items-center flex-col lg:flex-row gap-6 justify-center flex ">
+      <div className="my-20 overflow-hidden items-center flex-col lg:flex-row gap-6 justify-center flex">
         <img
+          loading="lazy"
           width={300}
           height={500}
           src={movieImageLink + poster}

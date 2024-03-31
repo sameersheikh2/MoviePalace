@@ -71,22 +71,13 @@ const Header = () => {
         <nav className="hidden lg:inline">
           <ul className="flex text-2xl space-x-4">
             <Link
-              className="text-base hover:bg-green-800 font-medium transition-all
-            ease-in-out duration-300 rounded-md p-2 hover:rounded-md hover:text-white"
+              className="text-base hover:bg-green-800 font-medium transition-all ease-in-out duration-300 rounded-md p-2 hover:rounded-md hover:text-white"
               to="/"
             >
               <li>Home</li>
             </Link>
-            <li
-              className="text-base cursor-pointer hover:bg-green-800 font-medium transition-all
-            ease-in-out duration-300 rounded-md p-2 hover:rounded-md hover:text-white"
-            >
-              About
-            </li>
-            <li
-              className="text-base cursor-pointer hover:bg-green-800 font-medium transition-all>Signup</li>
-            <li             ease-in-out duration-300 rounded-md p-2 hover:rounded-md hover:text-white"
-            >
+
+            <li className="text-base cursor-pointer hover:bg-green-800 font-medium transition-all ease-in-out duration-300 rounded-md p-2 hover:rounded-md hover:text-white">
               Login
             </li>
           </ul>
