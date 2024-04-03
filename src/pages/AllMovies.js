@@ -13,7 +13,7 @@ const AllMovies = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(fetchMovies(movieListType, page.current));
-  }, []);
+  }, [movieListType]);
 
   const loadMoreHandler = () => {
     const nextPage = page.current + 1;

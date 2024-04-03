@@ -11,8 +11,8 @@ const movieListsSlice = createSlice({
   },
   reducers: {
     setNowPlaying(state, action) {
-      const { type, data } = action.payload;
-      state[type] = data;
+      const { type, data, page } = action.payload;
+      state[type] = page === 1 ? data : [...state[type], ...data];
     },
   },
 });
@@ -24,7 +24,7 @@ export const fetchMovies = (type, page) => async (dispatch) => {
       options
     );
     const data = await res.json();
-    dispatch(setNowPlaying({ type, data: data.results }));
+    dispatch(setNowPlaying({ type, data: data.results, page }));
   } catch (error) {
     console.error(error.message);
   }
