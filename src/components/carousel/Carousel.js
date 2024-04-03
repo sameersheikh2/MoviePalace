@@ -40,7 +40,7 @@ const Carousel = ({ items, type }) => {
                   key={movie.id}
                   style={{
                     width: "auto",
-                    height: "100%",
+                    height: "auto",
                     overflow: "hidden",
                   }}
                   lazy="true"
