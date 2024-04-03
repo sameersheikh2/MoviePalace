@@ -17,10 +17,10 @@ const movieListsSlice = createSlice({
   },
 });
 
-export const fetchMovies = (type) => async (dispatch) => {
+export const fetchMovies = (type, page) => async (dispatch) => {
   try {
     const res = await fetch(
-      movieLink + `${type}?language=en-US&page=1`,
+      movieLink + `${type}?language=en-US&page=${page}`,
       options
     );
     const data = await res.json();

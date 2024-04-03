@@ -10,7 +10,7 @@ const Hero = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchMovies("now_playing"));
+    dispatch(fetchMovies("now_playing", 1));
   }, []);
 
   const settings = {

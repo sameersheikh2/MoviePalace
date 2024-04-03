@@ -14,8 +14,6 @@ const Movie = () => {
     dispatch(fetchMovieDetail(movie_id));
   }, [movie_id]);
 
-  // const movieDetail = useMovieInfo(movie_id);
-
   return (
     <>
       {typeof movieDetail !== "undefined" ? (

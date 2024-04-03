@@ -9,6 +9,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import SideMenu from "./components/sideMenu/SideMenu";
 import { createPortal } from "react-dom";
+import AllMovies from "./pages/AllMovies";
 
 const App = () => {
   const sideMenu = useSelector((state) => state.sideMenu);
@@ -39,6 +40,10 @@ const appRoute = createBrowserRouter([
       {
         path: "/movie/:movie_id",
         element: <Movie />,
+      },
+      {
+        path: "/movies/:movieListType",
+        element: <AllMovies />,
       },
       { path: "/cast/:cast_id", element: <CastInfo /> },
     ],
