@@ -13,7 +13,6 @@ const movieInfoSlice = createSlice({
 
 export const fetchMovieDetail = (movie_id) => async (dispatch) => {
   try {
-    console.log("i am running");
     const res = await fetch(
       movieLink +
         movie_id +
@@ -21,7 +20,6 @@ export const fetchMovieDetail = (movie_id) => async (dispatch) => {
       options
     );
     const data = await res.json();
-    console.log(data);
     dispatch(setMovieDetails(data));
   } catch (error) {
     console.error(error);
