@@ -24,6 +24,7 @@ const MovieInfo = ({
       ? videos.find((video) => video.type === "Trailer").key
       : "";
 
+  console.log(description);
   return (
     <>
       <section className="flex sm:flex-row flex-col justify-between items-center">

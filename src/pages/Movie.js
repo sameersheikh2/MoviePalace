@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import MovieInfo from "../components/movies/MovieInfo";
 import ShimmerMovieDetail from "../UI/ShimmerMovieDetail";
-import useMovieInfo from "../utils/useMovieInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovieDetail } from "../store/movieInfoSlice";
 
