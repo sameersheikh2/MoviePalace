@@ -5,7 +5,7 @@ const movieInfoSlice = createSlice({
   name: "movieInfo",
   initialState: [],
   reducers: {
-    setMovieDetails(state, action) {
+    setMovieDetails(action) {
       return action.payload;
     },
   },
