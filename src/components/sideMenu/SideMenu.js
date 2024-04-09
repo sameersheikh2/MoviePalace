@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,6 +6,7 @@ import { sideMenuToggle } from "../../store/sideMenuSlice";
 
 const SideMenu = () => {
   const dispatch = useDispatch();
+  const [showMoviesDropdown, setShowMoviesDropdown] = useState(false);
   const sideMenu = useSelector((state) => state.sideMenu);
 
   const handleCloseButtonClick = (e) => {
@@ -30,18 +31,45 @@ const SideMenu = () => {
         >
           <CloseIcon fontSize="large" />
         </button>
-        <ul className="flex flex-col gap-y-3 items-center justify-center text-3xl font-semibold tracking-wide">
+        <ul className="flex flex-col gap-y-3 items-center justify-center text-3xl font-semibold  tracking-wide">
           <Link to="/">
             <li className="hover:bg-green-800 px-3 py-2 rounded-lg ease-in duration-300 hover:text-white transition-all cursor-pointer">
               HOME
             </li>
           </Link>
 
-          <Link>
-            <li className="hover:bg-green-800 px-3 py-2 rounded-lg ease-in duration-300 hover:text-white transition-all cursor-pointer">
-              MOVIES
-            </li>
-          </Link>
+          <li
+            className="hover:bg-green-800 px-3 py-2 rounded-lg ease-in duration-300 hover:text-white text-center transition-all cursor-pointer"
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowMoviesDropdown(!showMoviesDropdown);
+            }}
+          >
+            MOVIES
+          </li>
+
+          <ul
+            className={`${
+              showMoviesDropdown ? "block" : "hidden"
+            } flex overflow-hidden flex-col gap-y-3 items-center justify-center text-xl font-semibold tracking-wide`}
+          >
+            <Link to="/movies/popular">
+              <li className="hover:bg-green-800 px-3 py-2 rounded-lg ease-in duration-300 hover:text-white transition-all cursor-pointer">
+                Popular
+              </li>
+            </Link>
+            <Link to="/movies/upcoming">
+              <li className="hover:bg-green-800 px-3 py-2 rounded-lg ease-in duration-300 hover:text-white transition-all cursor-pointer">
+                Upcoming
+              </li>
+            </Link>
+            <Link to="/movies/top_rated">
+              <li className="hover:bg-green-800 px-3 py-2 rounded-lg ease-in duration-300 hover:text-white transition-all cursor-pointer">
+                Top Rated
+              </li>
+            </Link>
+          </ul>
+
           <Link>
             <li className="hover:bg-green-800 px-3 py-2 rounded-lg ease-in duration-300 hover:text-white transition-all cursor-pointer">
               TV SERIES
