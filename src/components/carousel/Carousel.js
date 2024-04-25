@@ -1,29 +1,53 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../index.css";
+import Slider from "react-slick";
 
 const Carousel = ({ items, type }) => {
+  var settings = {
+    infinite: true,
+    lazyLoad: true,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
+    centerPadding: "60px",
+    slidesToShow: 1,
+    swipeToSlide: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
-    <swiper-container
-      navigation="true"
-      autoplay-delay="2000"
-      auto-height="true"
-      id="my-swiper"
-      autoplay-disable-on-interaction="false"
-      style={{
-        width: "100%",
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
+    <Slider {...settings} className="overflow-hidden relative">
       {items
         ? type === "image"
           ? items.map((item, index) => (
-              <swiper-slide
+              <div
                 key={index}
                 style={{ width: "auto", height: "100%", overflow: "hidden" }}
-                lazy="true"
               >
                 <img
                   loading="lazy"
@@ -31,19 +55,18 @@ const Carousel = ({ items, type }) => {
                   src={`https://image.tmdb.org/t/p/original/${item?.file_path}`}
                   alt={item?.title}
                 />
-              </swiper-slide>
+              </div>
             ))
           : items
               .filter((movie) => movie.backdrop_path !== null)
               .map((movie) => (
-                <swiper-slide
+                <div
                   key={movie.id}
                   style={{
                     width: "auto",
                     height: "auto",
                     overflow: "hidden",
                   }}
-                  lazy="true"
                 >
                   <Link to={"/movie/" + movie.id}>
                     <div className="overflow-hidden  w-full h-full relative">
@@ -67,10 +90,10 @@ const Carousel = ({ items, type }) => {
                       </div>
                     </div>
                   </Link>
-                </swiper-slide>
+                </div>
               ))
         : null}
-    </swiper-container>
+    </Slider>
   );
 };
 

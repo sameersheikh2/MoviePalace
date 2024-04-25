@@ -16,10 +16,7 @@ const App = () => {
 
   return (
     <React.StrictMode>
-      {createPortal(
-        sideMenu && <SideMenu />,
-        document.getElementById("side-menu")
-      )}
+      {createPortal(<SideMenu />, document.getElementById("side-menu"))}
 
       <Header />
       <Outlet />

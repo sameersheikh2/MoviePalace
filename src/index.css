@@ -26,3 +26,19 @@
     height: 40vh !important;
   }
 }
+
+.slick-next {
+  right: 18px !important;
+  position: absolute;
+  z-index: 10;
+}
+
+.slick-prev {
+  left: 14px !important;
+  position: absolute;
+  z-index: 10;
+}
+.slick-prev:before,
+.slick-next:before {
+  font-size: 40px !important;
+}

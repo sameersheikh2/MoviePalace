@@ -16,14 +16,12 @@ const SideMenu = () => {
 
   return (
     <div
-      className="fixed z-10 duration-500 bg-opacity-[50%] inset-0 bg-black"
+      className={`fixed z-10 ease-in-out duration-700 bg-opacity-[50%] inset-0 bg-black ${
+        sideMenu ? "translate-x-0 opacity-1" : "translate-x-[-1000px] opacity-0"
+      }`}
       onClick={() => dispatch(sideMenuToggle())}
     >
-      <div
-        className={`flex justify-center items-center top-0 w-48 md:w-96 h-[100vh] fixed z-40 ease-in-out  duration-1000 left-0 bg-white  ${
-          sideMenu ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
+      <div className="flex justify-center items-center top-0 w-48 md:w-96 h-[100vh] fixed z-40  left-0 bg-white">
         <button
           type="button"
           onClick={handleCloseButtonClick}
